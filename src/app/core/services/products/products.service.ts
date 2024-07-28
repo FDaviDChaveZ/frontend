@@ -7,7 +7,7 @@ import { Product } from '../../models/products/products';
   providedIn: 'root'
 })
 export class ProductsService {
-  private readonly urlApi = "http://127.0.0.1:8081"
+  private readonly urlApi = "http://127.0.0.1:8080"
   constructor(private http: HttpClient) {}
 
   public CreateEmployee(data: Product): Observable<any>{
