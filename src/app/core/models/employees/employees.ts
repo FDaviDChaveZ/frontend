@@ -1,10 +1,9 @@
-
-  export interface Employee{
-    apellidoPaterno: string;
-    apellidoMaterno: string;
-    nombres: string;
-    dni: string;
-    telefono: string;
-    direccion: string;
-    correo: string;
-  }
+export interface Employee {
+  lastName: string;
+  middleName: string;
+  firstNames: string;
+  dni: string;
+  phone: string;
+  address: string;
+  email: string;
+}

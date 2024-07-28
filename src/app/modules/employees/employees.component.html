@@ -1,1 +1,52 @@
-<button (click)="createEmployee()">Crear empleado</button>
+<div class="container">
+    <form [formGroup]="userForm">
+      <div class="row">
+        <div class="col-4">
+          <label for="">Apellido Paterno</label>
+          <input type="text" class="form-control" formControlName="lastName">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="">Apellido Materno</label>
+          <input type="text" class="form-control" formControlName="middleName">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="">Nombre</label>
+          <input type="text" class="form-control" formControlName="firstNames">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="">DNI</label>
+          <input type="text" class="form-control" formControlName="dni">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="">Telefono</label>
+          <input type="text" class="form-control" formControlName="phone">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="">Direccion</label>
+          <input type="text" class="form-control" formControlName="address">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="">Correo</label>
+          <input type="text" class="form-control" formControlName="email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <button class="btn btn-success" (click)="createEmployee()">Registrarse</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
