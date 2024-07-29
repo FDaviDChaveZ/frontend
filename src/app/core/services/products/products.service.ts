@@ -13,4 +13,8 @@ export class ProductsService {
   public CreateEmployee(data: Product): Observable<any>{
     return this.http.post(this.urlApi+"/products", data)
   }
+
+  public ListProducts(): Observable<Product[]>{
+    return this.http.get<Product[]>(this.urlApi+"/products")
+  }
 }

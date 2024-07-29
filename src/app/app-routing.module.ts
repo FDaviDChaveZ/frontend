@@ -32,6 +32,10 @@ const routes: Routes = [
         loadChildren: () => import("./modules/products/products.module").then(m => m.ProductsModule)
       },
       {
+        path: 'products-list',
+        loadChildren: () => import("./modules/products-list/products-list.module").then(m => m.ProductsListModule)
+      },
+      {
         path: 'color',
         loadComponent: () => import('./demo/ui-component/ui-color/ui-color.component')
       },

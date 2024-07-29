@@ -82,7 +82,7 @@ export const NavigationItems: NavigationItem[] = [
         title: 'Lista de productos',
         type: 'item',
         classes: 'nav-item',
-        url: '/products',
+        url: '/products-list',
         icon: 'dashboard',
         breadcrumbs: false
       }
