@@ -43,8 +43,8 @@ export const NavigationItems: NavigationItem[] = [
     icon: 'icon-navigation',
     children: [
       {
-        id: 'employe',
-        title: 'Empleado',
+        id: 'employe_registration',
+        title: 'Registrar empleado',
         type: 'item',
         classes: 'nav-item',
         url: '/employees',
@@ -52,8 +52,34 @@ export const NavigationItems: NavigationItem[] = [
         breadcrumbs: false
       },
       {
-        id: 'product',
-        title: 'Producto',
+        id: 'employees_list',
+        title: 'Lista de empleados',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/employees-list',
+        icon: 'dashboard',
+        breadcrumbs: false
+      }
+    ]
+  },
+  {
+    id: 'productos',
+    title: 'Productos',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'product_registration',
+        title: 'Registrar producto',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/products',
+        icon: 'dashboard',
+        breadcrumbs: false
+      },
+      {
+        id: 'product_list',
+        title: 'Lista de productos',
         type: 'item',
         classes: 'nav-item',
         url: '/products',

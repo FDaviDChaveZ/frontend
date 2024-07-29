@@ -1,0 +1,29 @@
+<h5 class="mb-3">Lista de empleados</h5>
+<div class="card tbl-card">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">APELLIDOS</th>
+                    <th style="text-align: center;">NOMBRES</th>
+                    <th style="text-align: center;">DNI</th>
+                    <th style="text-align: center;">TELÉFONO</th>
+                    <th style="text-align: center;">DIRECCIÓN</th>
+                    <th style="text-align: center;">EMAIL</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of employees; track item) {
+                <tr>
+                    <td>{{item.lastName}} {{item.middleName}}</td>
+                    <td>{{item.firstNames}}</td>
+                    <td>{{item.dni}}</td>
+                    <td>{{item.phone}}</td>
+                    <td>{{item.address}}</td>
+                    <td>{{item.email}}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
