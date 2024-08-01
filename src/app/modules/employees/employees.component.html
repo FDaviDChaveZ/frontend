@@ -8,24 +8,39 @@
         <div class="card-body">
           <form [formGroup]="userForm">
             <div class="form-group">
-              <label for="lastName">Apellido paterno</label>
+              <label for="lastName">Apellido paterno <span class="text-danger">*</span></label>
               <input type="text" class="form-control" formControlName="lastName" id="lastName">
+              <div *ngIf="userForm.get('lastName').touched && userForm.get('lastName').invalid" class="text-danger">
+                Apellido paterno es obligatorio.
+              </div>
             </div>
             <div class="form-group">
-              <label for="middleName">Apellido materno</label>
+              <label for="middleName">Apellido materno <span class="text-danger">*</span></label>
               <input type="text" class="form-control" formControlName="middleName" id="middleName">
+              <div *ngIf="userForm.get('middleName').touched && userForm.get('middleName').invalid" class="text-danger">
+                Apellido materno es obligatorio.
+              </div>
             </div>
             <div class="form-group">
-              <label for="firstNames">Nombre</label>
+              <label for="firstNames">Nombre <span class="text-danger">*</span></label>
               <input type="text" class="form-control" formControlName="firstNames" id="firstNames">
+              <div *ngIf="userForm.get('firstNames').touched && userForm.get('firstNames').invalid" class="text-danger">
+                Nombre es obligatorio.
+              </div>
             </div>
             <div class="form-group">
-              <label for="dni">DNI</label>
+              <label for="dni">DNI <span class="text-danger">*</span></label>
               <input type="text" class="form-control" formControlName="dni" id="dni">
+              <div *ngIf="userForm.get('dni').touched && userForm.get('dni').invalid" class="text-danger">
+                DNI es obligatorio.
+              </div>
             </div>
             <div class="form-group">
-              <label for="phone">Teléfono</label>
+              <label for="phone">Teléfono <span class="text-danger">*</span></label>
               <input type="text" class="form-control" formControlName="phone" id="phone">
+              <div *ngIf="userForm.get('phone').touched && userForm.get('phone').invalid" class="text-danger">
+                Teléfono es obligatorio.
+              </div>
             </div>
             <div class="form-group">
               <label for="address">Dirección</label>

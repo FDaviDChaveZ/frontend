@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Product } from 'src/app/core/models/products/products';
 import { ProductsService } from 'src/app/core/services/products/products.service';
 
@@ -14,14 +14,19 @@ export class ProductsComponent {
   productTypes: string[] = ['Peripheral devices', 'Laptop and computer spare parts', 'Printer spare parts'];
 
   productForm: FormGroup = new FormGroup({
-    name: new FormControl(''),
-    salePrice: new FormControl(''),
-    purchasePrice: new FormControl(''),
-    quantity: new FormControl(''),
-    productType: new FormControl('')
+    name: new FormControl('', Validators.required),
+    salePrice: new FormControl('', Validators.required),
+    purchasePrice: new FormControl('', Validators.required),
+    quantity: new FormControl('', Validators.required),
+    productType: new FormControl('', Validators.required)
   });
 
   public createProduct() {
+    if (this.productForm.invalid) {
+      this.productForm.markAllAsTouched();
+      return;
+    }
+
     const data: Product = this.productForm.value;
     this.productsService.CreateEmployee(data).subscribe({
       next: (response) => {

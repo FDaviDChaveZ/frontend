@@ -8,26 +8,41 @@
         <div class="card-body">
           <form [formGroup]="productForm">
             <div class="form-group">
-              <label for="name">Nombre</label>
+              <label for="name">Nombre <span class="text-danger">*</span></label>
               <input type="text" class="form-control" formControlName="name" id="name">
+              <div *ngIf="productForm.get('name').touched && productForm.get('name').invalid" class="text-danger">
+                Nombre es obligatorio.
+              </div>
             </div>
             <div class="form-group">
-              <label for="salePrice">Precio de venta</label>
+              <label for="salePrice">Precio de venta <span class="text-danger">*</span></label>
               <input type="text" class="form-control" formControlName="salePrice" id="salePrice">
+              <div *ngIf="productForm.get('salePrice').touched && productForm.get('salePrice').invalid" class="text-danger">
+                Precio de venta es obligatorio.
+              </div>
             </div>
             <div class="form-group">
-              <label for="purchasePrice">Precio de compra</label>
+              <label for="purchasePrice">Precio de compra <span class="text-danger">*</span></label>
               <input type="text" class="form-control" formControlName="purchasePrice" id="purchasePrice">
+              <div *ngIf="productForm.get('purchasePrice').touched && productForm.get('purchasePrice').invalid" class="text-danger">
+                Precio de compra es obligatorio.
+              </div>
             </div>
             <div class="form-group">
-              <label for="quantity">Cantidad</label>
+              <label for="quantity">Cantidad <span class="text-danger">*</span></label>
               <input type="text" class="form-control" formControlName="quantity" id="quantity">
+              <div *ngIf="productForm.get('quantity').touched && productForm.get('quantity').invalid" class="text-danger">
+                Cantidad es obligatorio.
+              </div>
             </div>
             <div class="form-group">
-              <label for="productType">Tipo de producto</label>
+              <label for="productType">Tipo de producto <span class="text-danger">*</span></label>
               <select class="form-control" formControlName="productType" id="productType">
                 <option *ngFor="let type of productTypes" [value]="type">{{ type }}</option>
               </select>
+              <div *ngIf="productForm.get('productType').touched && productForm.get('productType').invalid" class="text-danger">
+                Tipo de producto es obligatorio.
+              </div>
             </div>
             <div class="form-group text-center">
               <button type="button" class="btn btn-success" (click)="createProduct()">Registrar</button>
