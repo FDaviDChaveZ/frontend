@@ -1,27 +1,35 @@
-<h5 class="mb-3">Lista de productos</h5>
-<div class="card tbl-card">
-    <div class="table-responsive">
-        <table class="table table-hover mb-0">
-            <thead>
-                <tr>
+<div class="container ">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary">
+            <h4 class="mb-0 text-center">Lista de Empleados</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
                     <th style="text-align: center;">NOMBRE</th>
                     <th style="text-align: center;">PRECIO DE VENTA</th>
                     <th style="text-align: center;">PRECIO DE COMPRA</th>
                     <th style="text-align: center;">CANTIDAD</th>
                     <th style="text-align: center;">TIPO DE PRODUCTO</th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (item of products; track item) {
-                <tr>
-                    <td>{{item.name}}</td>
-                    <td>{{item.salePrice}}</td>
-                    <td>{{item.purchasePrice}}</td>
-                    <td>{{item.quantity}}</td>
-                    <td>{{item.productType}}</td>
-                </tr>
-                }
-            </tbody>
-        </table>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of products; track: item">
+                    <td style="text-align: center;">{{ item.name }}</td>
+                    <td style="text-align: center;">{{ item.salePrice }}</td>
+                    <td style="text-align: center;">{{ item.purchasePrice }}</td>
+                    <td style="text-align: center;">{{ item.quantity }}</td>
+                    <td style="text-align: center;">{{ item.productType }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>

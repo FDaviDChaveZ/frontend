@@ -1,29 +1,37 @@
-<h5 class="mb-3">Lista de empleados</h5>
-<div class="card tbl-card">
-    <div class="table-responsive">
-        <table class="table table-hover mb-0">
-            <thead>
+<div class="container ">
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary">
+          <h4 class="mb-0 text-center">Lista de Empleados</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
                 <tr>
-                    <th style="text-align: center;">APELLIDOS</th>
-                    <th style="text-align: center;">NOMBRES</th>
-                    <th style="text-align: center;">DNI</th>
-                    <th style="text-align: center;">TELÉFONO</th>
-                    <th style="text-align: center;">DIRECCIÓN</th>
-                    <th style="text-align: center;">EMAIL</th>
+                  <th style="text-align: center;">APELLIDOS</th>
+                  <th style="text-align: center;">NOMBRES</th>
+                  <th style="text-align: center;">DNI</th>
+                  <th style="text-align: center;">TELÉFONO</th>
+                  <th style="text-align: center;">DIRECCIÓN</th>
+                  <th style="text-align: center;">EMAIL</th>
                 </tr>
-            </thead>
-            <tbody>
-                @for (item of employees; track item) {
-                <tr>
-                    <td>{{item.lastName}} {{item.middleName}}</td>
-                    <td>{{item.firstNames}}</td>
-                    <td>{{item.dni}}</td>
-                    <td>{{item.phone}}</td>
-                    <td>{{item.address}}</td>
-                    <td>{{item.email}}</td>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of employees; track: item">
+                  <td style="text-align: center;">{{ item.lastName }} {{ item.middleName }}</td>
+                  <td style="text-align: center;">{{ item.firstNames }}</td>
+                  <td style="text-align: center;">{{ item.dni }}</td>
+                  <td style="text-align: center;">{{ item.phone }}</td>
+                  <td style="text-align: center;">{{ item.address }}</td>
+                  <td style="text-align: center;">{{ item.email }}</td>
                 </tr>
-                }
-            </tbody>
-        </table>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

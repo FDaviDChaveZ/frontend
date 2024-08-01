@@ -11,17 +11,6 @@ import { EmployeesService } from 'src/app/core/services/employees/employees.serv
 export class EmployeesComponent {
 
   constructor(private employeesService: EmployeesService) { }
-
-  userObj: any = {
-    id: 0,
-    lastName: '',
-    middleName: '',
-    firstNames: '',
-    dni: '',
-    phone: '',
-    address: '',
-    email: ''
-  }
   
   userForm: FormGroup = new FormGroup({
     lastName: new FormControl(''),

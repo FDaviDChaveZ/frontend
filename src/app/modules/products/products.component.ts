@@ -13,7 +13,7 @@ export class ProductsComponent {
 
   productTypes: string[] = ['Peripheral devices', 'Laptop and computer spare parts', 'Printer spare parts'];
 
-  userForm: FormGroup = new FormGroup({
+  productForm: FormGroup = new FormGroup({
     name: new FormControl(''),
     salePrice: new FormControl(''),
     purchasePrice: new FormControl(''),
@@ -22,7 +22,7 @@ export class ProductsComponent {
   });
 
   public createProduct() {
-    const data: Product = this.userForm.value;
+    const data: Product = this.productForm.value;
     this.productsService.CreateEmployee(data).subscribe({
       next: (response) => {
         console.log(response);
