@@ -37,6 +37,32 @@ export const NavigationItems: NavigationItem[] = [
     ]
   },
   {
+    id: 'sales',
+    title: 'Ventas',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'generate_sales',
+        title: 'Generar venta',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/sales',
+        icon: 'dashboard',
+        breadcrumbs: false
+      },
+      {
+        id: 'sales_list',
+        title: 'Lista de ventas',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/sales-list',
+        icon: 'dashboard',
+        breadcrumbs: false
+      }
+    ]
+  },
+  {
     id: 'employee',
     title: 'Empleado',
     type: 'group',
@@ -89,55 +115,11 @@ export const NavigationItems: NavigationItem[] = [
     ]
   },
   {
-    id: 'authentication',
-    title: 'Authentication',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'login',
-        title: 'Login',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/login',
-        icon: 'login',
-        target: true,
-        breadcrumbs: false
-      },
-      {
-        id: 'register',
-        title: 'Register',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/register',
-        icon: 'profile',
-        target: true,
-        breadcrumbs: false
-      }
-    ]
-  },
-  {
     id: 'utilities',
     title: 'UI Components',
     type: 'group',
     icon: 'icon-navigation',
     children: [
-      {
-        id: 'typography',
-        title: 'Typography',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/typography',
-        icon: 'font-size'
-      },
-      {
-        id: 'color',
-        title: 'Colors',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/color',
-        icon: 'bg-colors'
-      },
       {
         id: 'tabler',
         title: 'Tabler',
@@ -164,16 +146,6 @@ export const NavigationItems: NavigationItem[] = [
         url: '/sample-page',
         classes: 'nav-item',
         icon: 'chrome'
-      },
-      {
-        id: 'document',
-        title: 'Document',
-        type: 'item',
-        classes: 'nav-item',
-        url: 'https://codedthemes.gitbook.io/mantis-angular/',
-        icon: 'question',
-        target: true,
-        external: true
       }
     ]
   }

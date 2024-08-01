@@ -10,7 +10,7 @@ export class ProductsService {
   private readonly urlApi = "http://127.0.0.1:8080"
   constructor(private http: HttpClient) {}
 
-  public CreateEmployee(data: Product): Observable<any>{
+  public CreateProduct(data: Product): Observable<any>{
     return this.http.post(this.urlApi+"/products", data)
   }
 

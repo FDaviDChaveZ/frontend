@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary">
+                    <h4 class="mb-0 text-center">Generar venta</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="salesForm">
+                        <div class="form-group">
+                            <label for="productId">Productos <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" formControlName="productId" id="productId">
+                            <div *ngIf="salesForm.get('productId').touched && salesForm.get('productId').invalid"
+                                class="text-danger">
+                                Id de producto es obligatorio.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Cantidad <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" formControlName="quantity" id="quantity">
+                            <div *ngIf="salesForm.get('quantity').touched && salesForm.get('salePrice').invalid"
+                                class="text-danger">
+                                Cantidad es obligatoria.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="clientDni">DNI de cliente <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" formControlName="clientDni" id="clientDni">
+                            <div *ngIf="salesForm.get('clientDni').touched && salesForm.get('clientDni').invalid"
+                                class="text-danger">
+                                DNI de cliente es obligatorio.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Fecha</label>
+                            <input type="date" class="form-control" formControlName="date" id="date">
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="button" class="btn btn-success" (click)="createSale()">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

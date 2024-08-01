@@ -11,7 +11,7 @@ import { ProductsService } from 'src/app/core/services/products/products.service
 export class ProductsComponent {
   constructor(private productsService: ProductsService) {}
 
-  productTypes: string[] = ['Peripheral devices', 'Laptop and computer spare parts', 'Printer spare parts'];
+  productTypes: string[] = ['Dispositivos periféricos', 'Repuesto de laptops y computadoras', 'Repuesto de impresoras'];
 
   productForm: FormGroup = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -28,7 +28,7 @@ export class ProductsComponent {
     }
 
     const data: Product = this.productForm.value;
-    this.productsService.CreateEmployee(data).subscribe({
+    this.productsService.CreateProduct(data).subscribe({
       next: (response) => {
         console.log(response);
       },

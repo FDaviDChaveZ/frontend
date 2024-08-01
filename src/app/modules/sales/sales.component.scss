@@ -1,0 +1,17 @@
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.card-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.form-group label {
+    font-weight: bold;
+}

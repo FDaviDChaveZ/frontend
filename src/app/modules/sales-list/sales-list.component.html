@@ -1,0 +1,33 @@
+<div class="container ">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="card shadow-sm">
+          <div class="card-header bg-primary">
+            <h4 class="mb-0 text-center">Lista de ventas</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th style="text-align: center;">ID VENTA</th>
+                    <th style="text-align: center;">DNI CLIENTE</th>
+                    <th style="text-align: center;">FECHA</th>
+                    <th style="text-align: center;">CANTIDAD</th>
+                    <th style="text-align: center;">TIPO DE PRODUCTO</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of sales; track: item">
+                    <td style="text-align: center;">{{ item.productId }}</td>
+                    <td style="text-align: center;">{{ item.clientDni }}</td>
+                    <td style="text-align: center;">{{ item.date }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

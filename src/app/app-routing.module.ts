@@ -20,6 +20,14 @@ const routes: Routes = [
         loadComponent: () => import('./demo/default/dashboard/dashboard.component').then((c) => c.DefaultComponent)
       },
       {
+        path: 'sales',
+        loadChildren: () => import('./modules/sales/sales.module').then((m) => m.SalesModule)
+      },
+      {
+        path: 'sales-list',
+        loadChildren: () => import("./modules/sales-list/sales-list.module").then(m => m.SalesListModule)
+      },
+      {
         path: 'employees',
         loadChildren: () => import("./modules/employees/employees.module").then(m => m.EmployeesModule)
       },
@@ -34,10 +42,6 @@ const routes: Routes = [
       {
         path: 'products-list',
         loadChildren: () => import("./modules/products-list/products-list.module").then(m => m.ProductsListModule)
-      },
-      {
-        path: 'color',
-        loadComponent: () => import('./demo/ui-component/ui-color/ui-color.component')
       },
       {
         path: 'sample-page',
