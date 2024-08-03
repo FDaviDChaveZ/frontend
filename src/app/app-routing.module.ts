@@ -44,6 +44,14 @@ const routes: Routes = [
         loadChildren: () => import("./modules/products-list/products-list.module").then(m => m.ProductsListModule)
       },
       {
+        path: 'clients',
+        loadChildren: () => import("./modules/clients/clients.module").then(m => m.ClientsModule)
+      },
+      {
+        path: 'clients-list',
+        loadChildren: () => import("./modules/clients-list/clients-list.module").then(m => m.ClientsListModule)
+      },
+      {
         path: 'sample-page',
         loadComponent: () => import('./demo/other/sample-page/sample-page.component')
       }

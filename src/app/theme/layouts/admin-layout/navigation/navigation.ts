@@ -115,6 +115,32 @@ export const NavigationItems: NavigationItem[] = [
     ]
   },
   {
+    id: 'client',
+    title: 'Clientes',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'client_registration',
+        title: 'Registrar cliente',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/clients',
+        icon: 'dashboard',
+        breadcrumbs: false
+      },
+      {
+        id: 'clients_list',
+        title: 'Lista de clientes',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/clients-list',
+        icon: 'dashboard',
+        breadcrumbs: false
+      }
+    ]
+  },
+  {
     id: 'utilities',
     title: 'UI Components',
     type: 'group',
