@@ -10,22 +10,24 @@
             <table class="table table-hover mb-0">
               <thead>
                 <tr>
-                  <th style="text-align: center;">APELLIDOS</th>
                   <th style="text-align: center;">NOMBRES</th>
+                  <th style="text-align: center;">APELLIDOS</th>
                   <th style="text-align: center;">DNI</th>
                   <th style="text-align: center;">TELÉFONO</th>
                   <th style="text-align: center;">DIRECCIÓN</th>
                   <th style="text-align: center;">EMAIL</th>
+                  <th style="text-align: center;">ROL</th>
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let item of employees; track: item">
-                  <td style="text-align: center;">{{ item.lastName }} {{ item.middleName }}</td>
-                  <td style="text-align: center;">{{ item.firstNames }}</td>
+                  <td style="text-align: center;">{{ item.firstName }}</td>
+                  <td style="text-align: center;">{{ item.lastName }}</td>
                   <td style="text-align: center;">{{ item.dni }}</td>
                   <td style="text-align: center;">{{ item.phone }}</td>
                   <td style="text-align: center;">{{ item.address }}</td>
                   <td style="text-align: center;">{{ item.email }}</td>
+                  <td style="text-align: center;">{{ item.role }}</td>
                 </tr>
               </tbody>
             </table>

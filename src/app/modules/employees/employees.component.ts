@@ -14,12 +14,12 @@ export class EmployeesComponent {
 
   userForm: FormGroup = new FormGroup({
     lastName: new FormControl('', Validators.required),
-    middleName: new FormControl('', Validators.required),
-    firstNames: new FormControl('', Validators.required),
+    firstName: new FormControl('', Validators.required),
     dni: new FormControl('', Validators.required),
-    phone: new FormControl('', Validators.required),
+    phone: new FormControl(''),
     address: new FormControl(''),
-    email: new FormControl('')
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   });
 
   public createEmployee() {
