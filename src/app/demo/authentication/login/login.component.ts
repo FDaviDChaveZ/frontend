@@ -1,28 +1,28 @@
-// angular import
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/core/services/login/login.service';
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export default class LoginComponent {
-  // public method
-  SignInOptions = [
-    {
-      image: 'assets/images/authentication/google.svg',
-      name: 'Google'
-    },
-    {
-      image: 'assets/images/authentication/twitter.svg',
-      name: 'Twitter'
-    },
-    {
-      image: 'assets/images/authentication/facebook.svg',
-      name: 'Facebook'
-    }
-  ];
+  email: string = '';
+  password: string = '';
+
+  constructor(private loginService: LoginService, private router: Router) {}
+
+  login() {
+    this.loginService.login(this.email, this.password).subscribe(
+      (response) => {
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/dashboard/default']); // Redirigir al usuario después del login
+      },
+      (error) => {
+        console.error('Error al iniciar sesión:', error);
+        alert('Credenciales inválidas');
+      }
+    );
+  }
 }

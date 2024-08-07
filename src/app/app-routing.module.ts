@@ -57,6 +57,20 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: '',
+    component: GuestComponent,
+    children: [
+      {
+        path: 'login',
+        loadChildren: () => import('./demo/authentication/login/login.module').then(m => m.LoginModule)
+       }
+      // {
+      //   path: 'register',
+      //   loadChildren: () => import('./demo/authentication/register/register.module').then(m => m.ClientsListModule)
+      // }
+    ]
+  }
 ];
 
 @NgModule({

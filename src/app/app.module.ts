@@ -1,13 +1,12 @@
-// angular import
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// project import
+import { AuthInterceptor } from './core/interceptors/auth.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,11 +14,17 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,    
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent],
   providers: [
-    provideHttpClient(withInterceptorsFromDi())
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ]
 })
 export class AppModule { }
