@@ -12,13 +12,13 @@ const routes: Routes = [
     children: [      
       {
         path: '',
-        redirectTo: '/dashboard/default',
+        redirectTo: '/login',
         pathMatch: 'full'
       },
-      {
-        path: 'dashboard/default',
-        loadComponent: () => import('./demo/default/dashboard/dashboard.component').then((c) => c.DefaultComponent)
-      },
+      // {
+      //   path: 'dashboard/default',
+      //   loadComponent: () => import('./demo/default/dashboard/dashboard.component').then((c) => c.DefaultComponent)
+      // },
       {
         path: 'sales',
         loadChildren: () => import('./modules/sales/sales.module').then((m) => m.SalesModule)
@@ -51,10 +51,10 @@ const routes: Routes = [
         path: 'clients-list',
         loadChildren: () => import("./modules/clients-list/clients-list.module").then(m => m.ClientsListModule)
       },
-      {
-        path: 'sample-page',
-        loadComponent: () => import('./demo/other/sample-page/sample-page.component')
-      }
+      // {
+      //   path: 'sample-page',
+      //   loadComponent: () => import('./demo/other/sample-page/sample-page.component')
+      // }
     ]
   },
   {

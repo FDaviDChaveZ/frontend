@@ -17,7 +17,7 @@ export default class LoginComponent {
     this.loginService.login(this.email, this.password).subscribe(
       (response) => {
         localStorage.setItem('token', response.token);
-        this.router.navigate(['/dashboard/default']); // Redirigir al usuario después del login
+        this.router.navigate(['/sales-list']); // Redirigir al usuario después del login
       },
       (error) => {
         console.error('Error al iniciar sesión:', error);
