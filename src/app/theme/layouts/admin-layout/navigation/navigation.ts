@@ -19,23 +19,23 @@ export interface NavigationItem {
 }
 
 export const NavigationItems: NavigationItem[] = [
-  {
-    id: 'dashboard',
-    title: 'Dashboard',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'default',
-        title: 'Default',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/dashboard/default',
-        icon: 'dashboard',
-        breadcrumbs: false
-      }
-    ]
-  },
+  // {
+  //   id: 'dashboard',
+  //   title: 'Dashboard',
+  //   type: 'group',
+  //   icon: 'icon-navigation',
+  //   children: [
+  //     {
+  //       id: 'default',
+  //       title: 'Default',
+  //       type: 'item',
+  //       classes: 'nav-item',
+  //       url: '/dashboard/default',
+  //       icon: 'dashboard',
+  //       breadcrumbs: false
+  //     }
+  //   ]
+  // },
   {
     id: 'sales',
     title: 'Ventas',
@@ -156,16 +156,16 @@ export const NavigationItems: NavigationItem[] = [
         target: true,
         breadcrumbs: false
       },
-      {
-        id: 'register',
-        title: 'Register',
-        type: 'item',
-        classes: 'nav-item',
-        url: '/register',
-        icon: 'profile',
-        target: true,
-        breadcrumbs: false
-      }
+      // {
+      //   id: 'register',
+      //   title: 'Register',
+      //   type: 'item',
+      //   classes: 'nav-item',
+      //   url: '/register',
+      //   icon: 'profile',
+      //   target: true,
+      //   breadcrumbs: false
+      // }
     ]
   },
   {
@@ -187,20 +187,20 @@ export const NavigationItems: NavigationItem[] = [
     ]
   },
 
-  {
-    id: 'other',
-    title: 'Other',
-    type: 'group',
-    icon: 'icon-navigation',
-    children: [
-      {
-        id: 'sample-page',
-        title: 'Sample Page',
-        type: 'item',
-        url: '/sample-page',
-        classes: 'nav-item',
-        icon: 'chrome'
-      }
-    ]
-  }
+  // {
+  //   id: 'other',
+  //   title: 'Other',
+  //   type: 'group',
+  //   icon: 'icon-navigation',
+  //   children: [
+  //     {
+  //       id: 'sample-page',
+  //       title: 'Sample Page',
+  //       type: 'item',
+  //       url: '/sample-page',
+  //       classes: 'nav-item',
+  //       icon: 'chrome'
+  //     }
+  //   ]
+  // }
 ];
