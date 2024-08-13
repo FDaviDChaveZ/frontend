@@ -10,7 +10,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
     imports: [
         CommonModule,
         ClientsRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
     providers:[
         provideHttpClient(withInterceptorsFromDi())
