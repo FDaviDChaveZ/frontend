@@ -10,8 +10,8 @@ export class SalesService {
   private readonly urlApi = "http://127.0.0.1:8083"
   constructor(private http: HttpClient) {}
 
-  public GenerateSale(data: Sales): Observable<any>{
-    return this.http.post(this.urlApi+"/sales", data)
+  public GenerateSale(saleData: any): Observable<any>{
+    return this.http.post(this.urlApi+"/sales", saleData)
   }
 
   public ListSales(): Observable<Sales[]>{

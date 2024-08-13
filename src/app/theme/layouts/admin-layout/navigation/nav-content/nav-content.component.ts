@@ -69,10 +69,20 @@ export class NavContentComponent implements OnInit {
 
   // Life cycle events
   ngOnInit() {
+    // Comprobar si la ventana tiene menos de 1025px de ancho
     if (this.windowWidth < 1025) {
-      (document.querySelector('.coded-navbar') as HTMLDivElement).classList.add('menupos-static');
+      // Intentar seleccionar el elemento con la clase 'coded-navbar'
+      const navbarElement = document.querySelector('.coded-navbar') as HTMLDivElement;
+
+      // Comprobar si el elemento existe antes de acceder a 'classList'
+      if (navbarElement) {
+        navbarElement.classList.add('menupos-static');
+      } else {
+        console.warn("El elemento con la clase '.coded-navbar' no se encontró en el DOM.");
+      }
     }
   }
+
 
   fireOutClick() {
     let current_url = this.location.path();

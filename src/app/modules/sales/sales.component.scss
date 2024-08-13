@@ -12,6 +12,39 @@
     border-top-right-radius: 10px;
 }
 
+.card-header.bg-primary {
+    background-color: #007bff;
+    /* Ajusta el color si es necesario */
+}
+
 .form-group label {
     font-weight: bold;
+}
+
+.form-group .text-danger {
+    font-size: 0.875rem;
+}
+
+.table {
+    margin-top: 1.5rem;
+}
+
+.table th,
+.table td {
+    text-align: center;
+}
+
+.table .btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
 }

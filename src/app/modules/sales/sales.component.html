@@ -2,41 +2,93 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="card shadow-sm">
-                <div class="card-header bg-primary">
-                    <h4 class="mb-0 text-center">Generar venta</h4>
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0 text-center">Registro de Venta</h4>
                 </div>
                 <div class="card-body">
                     <form [formGroup]="salesForm">
+                        <!-- Campo de DNI del cliente -->
                         <div class="form-group">
-                            <label for="productId">Productos <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" formControlName="productId" id="productId">
-                            <div *ngIf="salesForm.get('productId').touched && salesForm.get('productId').invalid"
+                            <label for="clientDni">DNI Cliente <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" formControlName="clientDni" id="clientDni"
+                                placeholder="DNI Cliente">
+                            <div *ngIf="salesForm.get('clientDni').touched && salesForm.get('clientDni').invalid"
                                 class="text-danger">
-                                Id de producto es obligatorio.
+                                DNI del cliente es obligatorio.
                             </div>
                         </div>
+
+                        <!-- Tipo de boleta -->
+                        <div class="form-group">
+                            <label>Tipo de Boleta <span class="text-danger">*</span></label>
+                            <div>
+                                <label>
+                                    <input type="radio" formControlName="receiptType" value="Simple"> Simple
+                                </label>
+                                <label>
+                                    <input type="radio" formControlName="receiptType" value="DNI"> DNI
+                                </label>
+                            </div>
+                            <div *ngIf="salesForm.get('receiptType').touched && salesForm.get('receiptType').invalid"
+                                class="text-danger">
+                                Tipo de boleta es obligatorio.
+                            </div>
+                        </div>
+
+                        <!-- Selección de productos -->
+                        <div class="form-group">
+                            <label for="productId">Producto <span class="text-danger">*</span></label>
+                            <select class="form-control" formControlName="productId" id="productId">
+                                <option *ngFor="let product of filteredProducts" [value]="product._id">{{ product.name
+                                    }}</option>
+                            </select>
+                        </div>
+
                         <div class="form-group">
                             <label for="quantity">Cantidad <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" formControlName="quantity" id="quantity">
-                            <div *ngIf="salesForm.get('quantity').touched && salesForm.get('salePrice').invalid"
+                            <input type="number" class="form-control" formControlName="quantity" id="quantity"
+                                placeholder="0" [min]="1">
+                            <div *ngIf="salesForm.get('quantity').touched && salesForm.get('quantity').invalid"
                                 class="text-danger">
                                 Cantidad es obligatoria.
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="clientDni">DNI de cliente <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" formControlName="clientDni" id="clientDni">
-                            <div *ngIf="salesForm.get('clientDni').touched && salesForm.get('clientDni').invalid"
-                                class="text-danger">
-                                DNI de cliente es obligatorio.
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Fecha</label>
-                            <input type="date" class="form-control" formControlName="date" id="date">
-                        </div>
+
                         <div class="form-group text-center">
-                            <button type="button" class="btn btn-success" (click)="createSale()">Registrar</button>
+                            <button type="button" class="btn btn-success" (click)="addProduct()">Agregar
+                                producto</button>
+                        </div>
+
+                        <!-- Tabla de productos -->
+                        <table class="table mt-4">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio de venta</th>
+                                    <th>Subtotal</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let product of selectedProducts">
+                                    <td>{{ product.name }}</td>
+                                    <td>{{ product.quantity }}</td>
+                                    <td>{{ product.salePrice }}</td>
+                                    <td>{{ product.subtotal }}</td>
+                                    <td><button class="btn btn-danger"
+                                            (click)="removeProduct(product)">Eliminar</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Total -->
+                        <div class="form-group text-center">
+                            <span>Total: {{ totalAmount | currency }}</span>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button type="button" class="btn btn-primary" (click)="createSale()">Crear venta</button>
                         </div>
                     </form>
                 </div>

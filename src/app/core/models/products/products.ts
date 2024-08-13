@@ -1,7 +1,8 @@
 export interface Product {
+    _id: string; // Identificador único del producto
     name: string;
-    salePrice: Number;
-    purchasePrice: Number;
-    quantity: Number;
+    salePrice: number;
+    purchasePrice: number;
+    quantity: number;
     productType: string;
 }
