@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SalesService } from 'src/app/core/services/sales/sales.service';
 import { ProductsService } from 'src/app/core/services/products/products.service';
 import { Product } from 'src/app/core/models/products/products';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
   selector: 'app-sales',
@@ -21,13 +22,12 @@ export class SalesComponent implements OnInit {
     receiptType: new FormControl('', Validators.required)
   });
 
-
-
   displayedColumns: string[] = ['name', 'quantity', 'salePrice', 'subtotal', 'actions'];
 
   constructor(
     private salesService: SalesService,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private toastr: ToastrService 
   ) { }
 
   ngOnInit() {
@@ -47,18 +47,12 @@ export class SalesComponent implements OnInit {
   }
 
   addProduct() {
-    console.log('addProduct method called');
-    console.log('Valores del formulario en addProduct:', this.salesForm.value);
     const productId = this.salesForm.get('productId')?.value;
     const quantity = this.salesForm.get('quantity')?.value;
-
-    console.log('ProductId:', productId);
-    console.log('Quantity:', quantity);
 
     if (!productId || !quantity) return;
 
     const product = this.products.find(p => p._id === productId);
-    console.log('Product found:', product);
 
     if (!product) return;
 
@@ -72,12 +66,9 @@ export class SalesComponent implements OnInit {
     });
 
     this.totalAmount += subTotal;
-
-    console.log('Selected Products:', this.selectedProducts);
   }
 
   removeProduct(product: any) {
-    console.log('removeProduct method called');
     const index = this.selectedProducts.indexOf(product);
     if (index > -1) {
       this.totalAmount -= this.selectedProducts[index].subtotal;
@@ -86,12 +77,10 @@ export class SalesComponent implements OnInit {
   }
 
   searchClient() {
-    console.log('searchClient method called');
     console.log('Buscar cliente con DNI:', this.salesForm.get('clientDni')?.value);
   }
 
   searchProducts(event: Event) {
-    console.log('searchProducts method called');
     const input = event.target as HTMLInputElement;
     const searchTerm = input.value;
 
@@ -105,23 +94,15 @@ export class SalesComponent implements OnInit {
   }
 
   createSale() {
-    console.log('createSale method called');
-    console.log('Valores del formulario:', this.salesForm.value);
-    // Verificar si el formulario es válido
+    
     if (this.salesForm.invalid) {
       this.salesForm.markAllAsTouched();
-      console.log('Formulario inválido');
-      console.log('Valores del formulario:');
-      console.log('ProductId:', this.salesForm.get('productId')?.value);
-      console.log('Quantity:', this.salesForm.get('quantity')?.value);
-      console.log('ClientDni:', this.salesForm.get('clientDni')?.value);
-      console.log('ReceiptType:', this.salesForm.get('receiptType')?.value);
       return;
     }
 
-    // Verificar si hay productos seleccionados
+    
     if (this.selectedProducts.length === 0) {
-      console.log('Sin productos seleccionados');
+      this.toastr.error('Debe seleccionar al menos un producto.', 'Error');
       return;
     }
 
@@ -135,21 +116,18 @@ export class SalesComponent implements OnInit {
       receiptType: this.salesForm.get('receiptType')?.value
     };
 
-    console.log('Datos de la venta:', saleData);
-
     // Llamar al servicio para crear la venta
     this.salesService.GenerateSale(saleData).subscribe({
       next: (response) => {
-        console.log('Venta registrada con éxito', response);
+        this.toastr.success('Venta registrada con éxito', 'Confirmación');
+        this.salesForm.reset(); 
+        this.selectedProducts = []; 
+        this.totalAmount = 0; // 
       },
       error: (error) => {
+        this.toastr.error('Error al registrar la venta', 'Error');
         console.error('Error creando la venta', error);
       }
     });
   }
-
-
-
-
-
 }
